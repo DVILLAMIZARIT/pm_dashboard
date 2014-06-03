@@ -1,0 +1,25 @@
+/* Dashboard Style Sheet */
+.dash-table-header {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+.dash-table-footer {
+    font-weight: bold;
+    border-top: 1px solid black;
+}
+.dash-col-header {
+    font-weight: bold;
+}
+.dash-col-header-right {
+    font-weight: bold;
+}
+
+td {
+    border: 1px solid #999;
+    padding: 0.5rem;
+}
+
+tr  {
+    border: 1px solid #999;
+    padding: 0.5rem;
+}

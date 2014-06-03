@@ -1,0 +1,52 @@
+<%= render "styles" %>
+
+
+
+
+<div id="content">
+  <h2>Utilisation Report</h2>
+
+
+<p id="report-date-area">
+  <label for="report-from-date">Report start date</label>
+  <input id="report-from-date" type="text"/>
+  <%= calendar_for('report-from-date')  %>
+
+  &nbsp;
+  <label for="report-to-date">Report end date</label>
+  <input id="report-to-date" type="text"/>
+  <%= calendar_for('report-to-date')  %>
+
+  &nbsp;
+  <a class="icon icon-checked" href="#" onclick="alert('hello');">Apply</a>
+
+</p>
+
+
+
+  <table cellspacing="0" class="dash-table">
+    <%
+       (0..@dataset.length-1).each do |ridx|
+         row = @dataset[ridx]
+
+         cls = ''
+         cls = 'dash-table-header' if ridx == 0
+         cls = 'dash-table-footer' if ridx == @dataset.length-1
+         lvl =  "project-level-#{row[1]}"
+    %>
+    <tr class="<%= cls %> <%= lvl %>">
+      <%
+         (0..row.length-1).each do |idx|
+           col = row[idx]
+           cls = 'dash-col'
+           cls = 'dash-col-header dash-boarder-right' if idx == 0
+           cls = 'dash-col-header-right dash-boarder-left' if idx == row.length - 1
+          plvl = "dash-row-level-#{row[1]}"
+      %>
+      <td class="<%= cls %> <%= plvl %>">
+        <%= col %>
+      </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
